@@ -579,7 +579,7 @@ edit_char:
          lda #"*"
          sta (e_lo),y 
 ;--------------------------------------------------------------
-; edit char entry
+; keys for edit  
 ;--------------------------------------------------------------
 j_edit_exit: jmp edit_exit  
 edit_keys:         
