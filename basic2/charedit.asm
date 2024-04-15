@@ -199,6 +199,7 @@ loadfile:
           sta $8374
           lda #$00
           sta column 
+          sta row
           lda #$74
           sta c_lo
           lda #$83
