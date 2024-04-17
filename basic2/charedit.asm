@@ -1,4 +1,9 @@
 !to"charedit",cbm
+;
+; Revision: 0.2 (17.4.2024)
+;
+;
+;
 ; lots of offsets and variables
 s_lo   = $0a
 s_hi   = $0b
@@ -12,8 +17,8 @@ c_lo   = $14
 c_hi   = $15
 e_lo   = $16
 e_hi   = $17
-e_column =$18
-e_row =$19
+e_column=$18
+e_row =  $19
 
 ; file handling
 fnadr        = $da
@@ -42,8 +47,6 @@ bsout   = $ffd2
 !byte $00,$0c,$08,$0a,$00,$9e,$31,$30,$33,$39,$00,$00,$00,$00
 ; main
 *=$040f
-
-
           lda #$0e
           sta $e84c 
           lda #$93
@@ -132,23 +135,19 @@ write_new:
           sta s_lo  
           jsr show_charset
           jmp keys 
-
 ;--------------------------------------------------------------
 ; enter filename for load or save 
 ;--------------------------------------------------------------
 new_filename: 
-
           lda #<filename 
           sta fnadr   
           lda #>filename 
           sta fnadr+1
-
           lda #$12
           sta cur_row
           lda #$0a
           sta cur_col    
           jsr setcur 
-
           ldy #$00
           sty fnlen     
 -         jsr basin
@@ -210,7 +209,6 @@ loadfile:
           sta s_hi
           jsr show_char
           jmp keys
-
 ;--------------------------------------------------------------
 ; keyboard and long jumps
 ;--------------------------------------------------------------
@@ -394,7 +392,7 @@ j:       txa
 show_char:
          lda #$80
          sta t_hi
-         lda #$ca
+         lda #$cb
          sta t_lo 
          ldy #00   
          lda #$07 
@@ -427,79 +425,18 @@ show_char:
 ; build char in editor-window
 ;--------------------------------------------------------------
 show_byte:            
-         ldy #$08  
-         lda temp 
-         and #0b00000001
-         beq b1
+         ldy #$07  
+-        lda temp 
+         and tab,y
+         beq spc
          lda #$a0
          sta (t_lo),y
-         jmp +   
-b1:      lda #$20
-         sta (t_lo),y
-+        dey 
-         lda temp                 
-         and #0b00000010
-         beq b2
-         lda #$a0
-         sta (t_lo),y
-         jmp + 
-b2:      lda #$20
+         bne +   
+spc:     lda #$20
          sta (t_lo),y
 +        dey
-         lda temp                 
-         and #0b00000100
-         beq b3
-         lda #$a0
-         sta (t_lo),y
-         jmp +  
-b3:      lda #$20
-         sta (t_lo),y
-+        dey 
-         lda temp                 
-         and #0b00001000
-         beq b4
-         lda #$a0
-         sta (t_lo),y
-         jmp +
-b4:      lda #$20
-         sta (t_lo),y
-+        dey 
-         lda temp                 
-         and #0b00010000
-         beq b5
-         lda #$a0
-         sta (t_lo),y
-         jmp +
-b5:      lda #$20
-         sta (t_lo),y
-+        dey 
-         lda temp                 
-         and #0b00100000
-         beq b6
-         lda #$a0
-         sta (t_lo),y
-         jmp +  
-b6:      lda #$20
-         sta (t_lo),y
-+        dey 
-         lda temp                 
-         and #0b01000000
-         beq b7
-         lda #$a0
-         sta (t_lo),y
-         jmp +    
-b7:      lda #$20
-         sta (t_lo),y
-+        dey 
-         lda temp                 
-         and #0b10000000
-         beq +
-         lda #$a0
-         sta (t_lo),y
-         jmp end
-+        lda #$20
-         sta (t_lo),y
-end:     rts
+         bpl -
+         rts
 ;--------------------------------------------------------------
 ; exit the edit-window
 ;--------------------------------------------------------------
@@ -527,7 +464,7 @@ edit_exit:
          cmp #$a0
          bne +
          lda temp
-         ora ortab,y
+         ora tab,y
          sta temp 
 +        iny
          cpy #$08  
@@ -550,7 +487,7 @@ edit_exit:
          pla
          sta s_lo   
          jmp keys
-ortab: !by $80,$40,$20,$10,$08,$04,$02,$01
+tab: !by $80,$40,$20,$10,$08,$04,$02,$01
 ;--------------------------------------------------------------
 ; edit bit in edit-window
 ;--------------------------------------------------------------
@@ -579,9 +516,6 @@ edit_char:
          sta temp
          lda #"*"
          sta (e_lo),y 
-;--------------------------------------------------------------
-; keys for edit  
-;--------------------------------------------------------------
 edit_keys:         
          jsr $ffe4
          cmp #"6"
@@ -592,7 +526,6 @@ edit_keys:
          beq edit_down
          cmp #"8"
          beq edit_up
-
          cmp #"E"
          beq j_edit_exit       
          cmp #$20
@@ -652,8 +585,7 @@ edit_down:
          sta e_lo
          bcc +
          inc e_hi
-+        
-         lda (e_lo),y  
++        lda (e_lo),y  
          sta temp 
          lda #"*"
          sta (e_lo),y 
@@ -749,7 +681,6 @@ screen:
 !scr "        "
 *=$1500
 ;space for the charset, up to $16ff
-
 
 
 
