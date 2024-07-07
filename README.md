@@ -12,7 +12,7 @@ The actual hardware is not tested in all cases (on/off function). Basically it w
 
 ![development](https://github.com/cbmuser/PET-PCG-2024/blob/main/pet_pcg2024.jpg)
 
-The first board for development. The first idea was to use banking for addressing the whole ram and the bigger IDT7132. I kicked this because no one will ever write software for that.
+The first board for development. The first idea was to use banking for addressing the whole ram and the bigger IDT7132. I've kicked this because no one will ever write software for that.
 
 ![development1](https://github.com/cbmuser/PET-PCG-2024/blob/main/pet_pcg_flachband.jpg)
 
