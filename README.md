@@ -6,9 +6,19 @@ http://mikenaberezny.com/hardware/pet-cbm/hal-pcg-6500-graphics-board/
 My version fits into the newer dynamic PET-board (CBM 2001/3001) and uses DMA-access at $a000 or $9000 for transfering the chars. 
 ![PCB](https://github.com/cbmuser/PET-PCG-2024/blob/main/pcg2024_PCB.jpg)
 You can use a IDT7130 in DIP or PLCC52. **You only need one of them !**  
+The actual hardware is not tested in all cases (on/off function). Basically it works and new software is under construction, also some games from the HAL-adapter will be patched to this version. The board-routing was done in development-progress, so it works, but it's not the best it can be.  
 
 **This is open hard- and software. Use it on your own risc. There is no warranty at all !**
-The actual hardware is not tested in all cases (on/off function). Basically it works and new software is under construction, also some games from the HAL-adapter will be patched to this version. The board-routing was done in development-progress, so it works, but it's not the best it can be.  
+
+![development](https://github.com/cbmuser/PET-PCG-2024/blob/main/pet_pcg2024.jpg)
+
+The first board for development. The first idea was to use banking for addressing the whole ram and the bigger IDT7132. I kicked this because no one will ever write software for that.
+
+![development1](https://github.com/cbmuser/PET-PCG-2024/blob/main/pet_pcg_flachband.jpg)
+
+The char-rom and the connection to the socket fits on the solder-side.
+
+
 
 A first character-editor 
 
