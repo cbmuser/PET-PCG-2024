@@ -2,6 +2,7 @@
 In the early 80th HAL Laboratory in Japan created a programmable character set generator and sound device for PET/CBM computers. This used the userport and the charater-socket for connection. So it was very easy to use with the first BASIC 1 machines. 
 Mike Naberenzy reversed the logic and reassembled the software. A big thanks for that !  
 http://mikenaberezny.com/hardware/pet-cbm/hal-pcg-6500-graphics-board/
+
 It's also possible to rebuild the original hardware: https://github.com/InsaneDruid/PCG-6500 for the early BASIC1-machines. There you'll find also other usefull stuff for your PET.
 
 
