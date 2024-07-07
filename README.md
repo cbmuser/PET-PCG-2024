@@ -3,7 +3,7 @@ In the early 80th HAL Laboratory in Japan created a programmable character set g
 Mike Naberenzy reversed the logic and reassembled the software. A big thanks for that !  
 http://mikenaberezny.com/hardware/pet-cbm/hal-pcg-6500-graphics-board/
 
-My version fits into the newer dynamic PET-board (CBM 2001/3001) and uses DMA-access at **$a000** or $9000 for transfering the chars. There is no CB2-sound, I'll want to combine this in the future with a joystick-adapter at the userport.
+My version fits into the newer dynamic PET-board (CBM 2001/3001) and uses DMA-access at **$a000** or $9000 for transfering the chars. There is no CB2-sound, I want to combine this in the future with a joystick-adapter at the userport.
 ![PCB](https://github.com/cbmuser/PET-PCG-2024/blob/main/pcg2024_PCB.jpg)
 You can use a IDT7130 in DIP or PLCC52. **You only need one of them !**  
 The actual hardware is not tested in all cases (on/off function). Basically it works and new software is under construction, also some games from the HAL-adapter will be patched to this version. The board-routing was done in development-progress, so it works, but it's not the best it can be.  
