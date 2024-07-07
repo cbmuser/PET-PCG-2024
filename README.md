@@ -2,6 +2,8 @@
 In the early 80th HAL Laboratory in Japan created a programmable character set generator and sound device for PET/CBM computers. This used the userport and the charater-socket for connection. So it was very easy to use with the first BASIC 1 machines. 
 Mike Naberenzy reversed the logic and reassembled the software. A big thanks for that !  
 http://mikenaberezny.com/hardware/pet-cbm/hal-pcg-6500-graphics-board/
+It's also possible to rebuild the original hardware: https://github.com/InsaneDruid/PCG-6500 for the early BASIC1-machines. There you'll find also other usefull stuff for your PET.
+
 
 My version fits into the newer dynamic PET-board (CBM 2001/3001) and uses DMA-access at **$a000** or $9000 for transfering the chars. There is no CB2-sound, I want to combine this in the future with a joystick-adapter at the userport.
 ![PCB](https://github.com/cbmuser/PET-PCG-2024/blob/main/pcg2024_PCB.jpg)
