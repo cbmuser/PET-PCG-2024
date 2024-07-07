@@ -24,5 +24,5 @@ A first character-editor
 
 ![charedit](https://github.com/cbmuser/PET-PCG-2024/assets/34414160/4d7a54f9-4bdf-4e4e-bc9e-624cf71814df)
 
-It uses $a000 for the DMA. If you want to compile it for $9000 use the ACME-Assmbler. https://sourceforge.net/projects/acme-crossass/ 
+It uses $a000 for the DMA. If you want to compile it for $9000 use the ACME Cross-Assembler. https://sourceforge.net/projects/acme-crossass/ 
 
