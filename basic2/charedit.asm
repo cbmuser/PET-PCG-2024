@@ -9,16 +9,16 @@ s_lo   = $0a
 s_hi   = $0b
 t_lo   = $0c
 t_hi   = $0d
-temp   = $10
-lines  = $11
-column = $12
-row    = $13
-c_lo   = $14
-c_hi   = $15
-e_lo   = $16
-e_hi   = $17
-e_column=$18
-e_row =  $19
+temp   = $54
+lines  = $55
+column = $56
+row    = $57
+c_lo   = $58
+c_hi   = $59
+e_lo   = $5a
+e_hi   = $5b
+e_column=$5c
+e_row =  $5d
 
 ; file handling
 fnadr        = $da
@@ -679,7 +679,7 @@ screen:
 !scr " -------------------------------------- "
 !scr " charset                                "
 !scr "        "
-*=$1500
+;*=$1500
 ;space for the charset, up to $16ff
 
 
