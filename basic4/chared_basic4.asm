@@ -31,13 +31,11 @@ secnd        = $f2c1
 load         = $f356
 save         = $f6e3
 close        = $f2e0  
-
 ; screen and char
 screen_ram   = $8000
 char         = $1500
 cur_col      = $c6
 cur_row      = $d8
-setcur       = $e25d
 bsout        = $ffd2
 
 *= $0400
@@ -149,7 +147,6 @@ new_filename:
           sta cur_row
           lda #$0a
           sta cur_col    
-;          jsr setcur 
           ldy #$00
           sty fnlen     
 -         jsr basin
@@ -652,7 +649,6 @@ filename: !by $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 ; Filehandling Basic 4 : save charset
 ;--------------------------------------------------------------
 charset_save:      
-
          lda #$00
          sta $fb
          lda #$15
@@ -683,7 +679,6 @@ charset_save:
          lda #$0f 
          jsr close
          rts 
-
 ;--------------------------------------------------------------
 ; Filehandling Basic 4 : directory
 ;--------------------------------------------------------------
@@ -718,8 +713,6 @@ directory:
           iny
           bne -
           jmp keys 
-
-
 screen:
 !scr "charedit for pet pcg           (BASIC 4)"
 !scr "----------------------------------------"
