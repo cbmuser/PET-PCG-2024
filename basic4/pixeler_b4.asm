@@ -1,4 +1,4 @@
-!to"pixeler_b4",cbm
+!to"pixeler",cbm
 ;
 ; lots of offsets and variables
 s_lo         = $0a
